@@ -14,8 +14,8 @@ namespace JamFactory
 
         private int n;
         private string numberSequence;
-        int[] numbers;
-        int[] jamType;
+        private int[] numbers;
+        private int[] jamType;
         public JamData()
         {
             BlueberryCount = 0;
@@ -32,6 +32,8 @@ namespace JamFactory
             }
 
             numbers = numberSequence.Split(' ').Select(int.Parse).ToArray();
+
+            jamType = new int[numbers.Length / 8];
 
             SequenceToJamTypesNumbers();
 
