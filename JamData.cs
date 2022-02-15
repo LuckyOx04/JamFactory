@@ -21,12 +21,13 @@ namespace JamFactory
             BlueberryCount = 0;
             PeachesCount = 0;
             RoseHipsCount = 0;
+
             Console.Write("Enter number sequence length: ");
             n = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Enter number sequence with spaces in between numbers:");
             numberSequence = Console.ReadLine();
-            if(numberSequence.Length/2 + 1 != n)
+            if (numberSequence.Length / 2 + 1 != n)
             {
                 throw new IndexOutOfRangeException("Number sequence has more numbers than stated!");
             }
@@ -62,7 +63,7 @@ namespace JamFactory
         void SequenceToJamTypesNumbers()
         {
             int index = 0;
-            for (int i = 3; i < numbers.Length-3; i += 8, index++ )
+            for (int i = 3; i < numbers.Length-3 && index < jamType.Length; i += 8, index++ )
             {
                 jamType[index] = numbers[i] * 1000 + numbers[i + 1] * 100 + numbers[i + 2] * 10 + numbers[i + 3];
             }
