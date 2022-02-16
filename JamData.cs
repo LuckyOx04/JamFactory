@@ -22,6 +22,19 @@ namespace JamFactory
             PeachesCount = 0;
             RoseHipsCount = 0;
 
+            InputData();
+
+            SequenceToJamTypesNumbers();
+
+            for(int i = 0; i < jamType.Length; i++)
+            {
+                JamTypesNumbersToNumberOfTypes(jamType[i]);
+            }
+        }
+
+        //Inputs data and validates it.
+        void InputData()
+        {
             Console.Write("Enter number sequence length: ");
             n = int.Parse(Console.ReadLine());
 
@@ -35,15 +48,9 @@ namespace JamFactory
             numbers = numberSequence.Split(' ').Select(int.Parse).ToArray();
 
             jamType = new int[numbers.Length / 8];
-
-            SequenceToJamTypesNumbers();
-
-            for(int i = 0; i < jamType.Length; i++)
-            {
-                JamTypesNumbersToNumberOfTypes(jamType[i]);
-            }
         }
 
+        //Checks which flavor does the four digit number corespond to.
         void JamTypesNumbersToNumberOfTypes(int num)
         {
             if(num % 7 == 0)
@@ -60,6 +67,8 @@ namespace JamFactory
             }
         }
 
+        //Takes the four specific numbers from the numbers array
+        //and writes them to the jamType array.
         void SequenceToJamTypesNumbers()
         {
             int index = 0;
